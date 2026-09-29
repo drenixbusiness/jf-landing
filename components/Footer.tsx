@@ -22,6 +22,7 @@ export function Footer() {
             <li><a href="/#why">Why drive with us</a></li>
             <li><a href="/#equipment">Equipment</a></li>
             <li><a href="/#requirements">Requirements</a></li>
+            <li><a href="/offer">Owner-operator offer</a></li>
             <li><a href="/#apply">Apply now</a></li>
           </ul>
         </div>

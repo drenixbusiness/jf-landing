@@ -4,7 +4,7 @@ export const site = {
   shortName: "J Foster Trucking",
   phone: "(000) 000-0000",
   phoneHref: "tel:+10000000000",
-  email: "dispatch@jfostertrucking.com",
+  email: "hr@jfostertrucking.com",
   address: "5380 Hickory Hollow Pkwy, Suite 200, Antioch, TN 37013",
   addressLines: ["5380 Hickory Hollow Pkwy, Suite 200", "Antioch, TN 37013"],
   // Map pin (US Census geocoder match for the street address).

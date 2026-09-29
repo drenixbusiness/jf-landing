@@ -6,9 +6,10 @@ import { ApplyLink } from "./ApplyLink";
 import { site } from "@/lib/site";
 
 const links = [
-  { href: "/#why", label: "Why drive with us" },
+  { href: "/#why", label: "Why us" },
   { href: "/#equipment", label: "Equipment" },
   { href: "/#requirements", label: "Requirements" },
+  { href: "/offer", label: "Owner-operators" },
   { href: "/#contact", label: "Contact" },
 ];
 

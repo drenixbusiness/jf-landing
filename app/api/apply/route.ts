@@ -46,7 +46,7 @@ export async function POST(req: Request) {
   const d = phoneDigits(q.phone);
   const stateName = US_STATES.find(([code]) => code === q.state)?.[1] ?? q.state;
   const text = [
-    "🚚 <b>New driver application</b>",
+    "🚚 <b>New lead</b> — driver application",
     ...(trapped ? ["⚠️ <i>Possible spam (hidden field was filled)</i>"] : []),
     "",
     `<b>Name:</b> ${esc(q.firstName)} ${esc(q.lastName)}`,

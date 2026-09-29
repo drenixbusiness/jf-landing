@@ -24,7 +24,7 @@ const equipment = [
 
 const benefits: { icon: IconName; tone: string; title: string; text: string }[] = [
   { icon: "circle-dollar-sign", tone: "fi-accent", title: "Weekly pay", text: "Paid every week by direct deposit, with settlements you can actually read." },
-  { icon: "shield-check", tone: "fi-dark", title: "Fully insured", text: "$1M auto liability and $100K cargo coverage on every load." },
+  { icon: "shield-check", tone: "fi-dark", title: "Fully insured", text: "$1M auto liability and $250K cargo coverage on every load." },
   { icon: "truck", tone: "fi-dark", title: "Well-kept trucks", text: "Late-model equipment, maintained in the shop — not patched on the side of the road." },
   { icon: "phone", tone: "fi-peach", title: "A dispatcher who picks up", text: "Real people answer 24/7, and they know you by name." },
 ];
