@@ -6,11 +6,11 @@ import { ApplyLink } from "./ApplyLink";
 import { site } from "@/lib/site";
 
 const links = [
-  { href: "/#why", label: "Why us" },
-  { href: "/#equipment", label: "Equipment" },
-  { href: "/#requirements", label: "Requirements" },
+  { href: "/why", label: "Why us" },
+  { href: "/equipment", label: "Equipment" },
+  { href: "/requirements", label: "Requirements" },
   { href: "/offer", label: "Owner-operators" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -25,7 +25,7 @@ export function Header() {
   return (
     <header className="site-header container">
       <div className="header-bar">
-        <a className="logo" href="/#top" aria-label={`${site.shortName} — home`}>
+        <a className="logo" href="/" aria-label={`${site.shortName} — home`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/assets/images/jf-logo-crop.svg" alt={site.name} width={596} height={259} />
         </a>

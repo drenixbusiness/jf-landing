@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="site-footer container">
       <div className="footer-grid">
         <div className="footer-brand">
-          <a className="logo logo-footer" href="/#top" aria-label={`${site.shortName} — back to top`}>
+          <a className="logo logo-footer" href="/" aria-label={`${site.shortName} — back to top`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/assets/images/jf-logo-crop.svg" alt={site.name} width={596} height={259} loading="lazy" />
           </a>
@@ -19,11 +19,11 @@ export function Footer() {
         <div className="footer-col">
           <h4>Drivers</h4>
           <ul>
-            <li><a href="/#why">Why drive with us</a></li>
-            <li><a href="/#equipment">Equipment</a></li>
-            <li><a href="/#requirements">Requirements</a></li>
+            <li><a href="/why">Why drive with us</a></li>
+            <li><a href="/equipment">Equipment</a></li>
+            <li><a href="/requirements">Requirements</a></li>
             <li><a href="/offer">Owner-operator offer</a></li>
-            <li><a href="/#apply">Apply now</a></li>
+            <li><a href="/apply">Apply now</a></li>
           </ul>
         </div>
         <div className="footer-col">

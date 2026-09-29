@@ -125,7 +125,7 @@ export default function Offer() {
           <p>Call our recruiting line or send a quick application. We’ll go over the numbers with you, line by line.</p>
           <div className="btn-row">
             <a className="btn btn-dark" href={site.phoneHref}><Icon name="phone" />{site.phone}</a>
-            <a className="btn btn-cream" href="/#apply">Apply now</a>
+            <a className="btn btn-cream" href="/apply">Apply now</a>
           </div>
         </div>
       </section>

@@ -57,7 +57,7 @@ export default function Home() {
             </p>
             <div className="btn-row">
               <ApplyLink className="btn btn-primary">Apply in 2 minutes <Icon name="arrow-right" /></ApplyLink>
-              <a className="btn btn-ghost-light" href="#requirements">See requirements</a>
+              <a className="btn btn-ghost-light" href="/requirements">See requirements</a>
             </div>
           </div>
           <ApplyForm />
