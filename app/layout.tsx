@@ -13,9 +13,9 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
-  title: { default: `${site.name} — Full truckload carrier`, template: `%s — ${site.shortName}` },
+  title: { default: ` ${site.shortName}`, template: `%s — ${site.shortName}` },
   description:
-    "Dry van, reefer and flatbed capacity across the lower 48. One dispatcher, one phone number, live updates from pickup to delivery.",
+    "J Foster Trucking is hiring CDL-A drivers in Nashville, TN. Weekly pay, home time you can plan, well-kept trucks and a dispatcher who picks up. Apply in 2 minutes.",
 };
 
 export const viewport: Viewport = { themeColor: "#f5ead8" };

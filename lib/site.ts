@@ -6,7 +6,7 @@ export const site = {
   phoneHref: "tel:+10000000000",
   email: "dispatch@jfostertrucking.com",
   address: "5380 Hickory Hollow Pkwy, Suite 200, Antioch, TN 37013",
-  addressLines: ["5380 Hickory Hollow Pkwy, Suite 200", "Antioch, TN 37013"],
+  addressLines: ["5380 Hickory Hollow Pkwy, Suite 200", "Antioch, TN 37013"],
   // Map pin (US Census geocoder match for the street address).
   geo: { lat: 36.04497, lng: -86.65189 },
   directionsUrl:
@@ -14,9 +14,16 @@ export const site = {
   usdot: "USDOT 1301253",
   mc: "MC 504929",
   stats: [
-    { value: "48", label: "States covered" },
-    { value: "98%", label: "On-time delivery" },
-    { value: "24/7", label: "Live dispatch" },
+    { value: "Weekly", label: "Pay, direct deposit" },
+    { value: "48", label: "States we run" },
+    { value: "24/7", label: "Dispatch support" },
+  ],
+  // Driver requirements — confirm these with the safety/hiring team.
+  requirements: [
+    "Valid Class A CDL",
+    "At least 21 years old",
+    "Clean driving record (MVR)",
+    "Able to pass a DOT physical and drug screen",
   ],
   legalUpdated: "September 29, 2026",
 };

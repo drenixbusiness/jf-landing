@@ -41,8 +41,8 @@ body {
 }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
-h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.06; margin: 0; letter-spacing: -0.01em; }
-p { margin: 0; }
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.06; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 section { scroll-margin-top: 24px; }
 
@@ -100,16 +100,10 @@ section { scroll-margin-top: 24px; }
 /* ---------- Header ---------- */
 .site-header { position: relative; z-index: 20; }
 .header-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
-.logo {
-  position: relative; display: block; flex: none;
-  width: 190px; height: 86px; overflow: hidden; border-radius: 12px;
-}
-.logo img {
-  position: absolute; width: 206px; max-width: none; left: -9px; top: -47px;
-  mix-blend-mode: multiply;
-}
-.logo-footer { width: 170px; height: 77px; }
-.logo-footer img { width: 184px; left: -8px; top: -42px; }
+/* jf-logo-crop.svg is trimmed to the artwork, so it just scales by width. */
+.logo { display: block; flex: none; width: 168px; }
+.logo img { display: block; width: 100%; height: auto; }
+.logo-footer { width: 160px; }
 
 .nav-pill {
   display: flex; gap: 2px; padding: 6px;
@@ -181,7 +175,7 @@ section { scroll-margin-top: 24px; }
   font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
 }
 .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-.hero h1 { font-size: clamp(44px, 6vw, 88px); line-height: 1.02; margin: 24px 0 24px; }
+.hero h1 { font-size: clamp(44px, 5vw, 80px); line-height: 1.02; margin: 24px 0 24px; }
 .hero h1 span { display: block; }
 .hero h1 .hl { color: var(--accent-300); }
 .hero-lead { font-size: 19px; max-width: 44ch; color: color-mix(in srgb, var(--bg) 82%, transparent); margin-bottom: 32px; }
@@ -261,7 +255,7 @@ section { scroll-margin-top: 24px; }
 /* ---------- Services ---------- */
 .section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px 48px; margin-bottom: 40px; }
 .section-head p { max-width: 46ch; font-size: 17px; }
-.cards-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 20px; }
+.cards-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 20px; }
 .service-card { border-radius: var(--radius-container); padding: 12px 12px 28px; }
 .service-card .photo { aspect-ratio: 4 / 3; border-radius: var(--radius-card); }
 .service-card h3 { font-size: 28px; margin: 24px 16px 8px; }
@@ -325,14 +319,41 @@ section { scroll-margin-top: 24px; }
 .cta p { font-size: 19px; max-width: 44ch; margin-bottom: 32px; color: color-mix(in srgb, #fff 90%, transparent); }
 
 /* ---------- Footer ---------- */
-.site-footer { padding: clamp(56px, 7vw, 96px) 0 0; }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 24px 0 48px; font-size: 15px; }
-.footer-grid h4 { font-family: var(--font-heading); font-weight: 400; font-size: 20px; margin: 0 0 12px; }
-.footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+/* padding-top only: .container supplies the side gutters. */
+.site-footer { padding-top: clamp(72px, 9vw, 128px); }
+.footer-grid {
+  display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr)); gap: 32px 48px;
+  background: var(--surface); border-radius: var(--radius-container);
+  padding: clamp(28px, 4vw, 48px); font-size: 15px;
+}
+.footer-grid h4 { font-family: var(--font-heading); font-weight: 400; font-size: 22px; margin: 0 0 12px; }
+.footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
 .footer-grid li { color: var(--muted); }
 .footer-grid a { display: inline-block; padding: 6px 0; color: var(--muted); }
 .footer-grid a:hover { color: var(--accent-700); }
-.footer-brand p { margin-top: 12px; color: var(--muted); }
+.footer-brand p { margin: 16px 0 20px; color: var(--muted); max-width: 32ch; }
+.footer-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.footer-tags .tag-outline { font-size: 13px; padding: 6px 14px; }
+.footer-bottom {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px;
+  padding: 20px clamp(28px, 4vw, 48px) 32px; font-size: 14px; color: var(--muted);
+}
+.footer-bottom nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.footer-bottom a { display: inline-block; padding: 6px 0; }
+.footer-bottom a:hover { color: var(--accent-700); }
+
+/* ---------- How hiring works ---------- */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 20px; }
+.step-card { background: var(--surface); border-radius: var(--radius-card); padding: 32px 28px; }
+.step-num {
+  display: flex; align-items: center; justify-content: center;
+  width: 52px; height: 52px; border-radius: 50%; margin-bottom: 20px;
+  background: var(--text); color: var(--bg); font-family: var(--font-heading); font-size: 24px; line-height: 1;
+}
+.step-card:nth-child(1) .step-num { background: var(--accent); }
+.step-card:nth-child(2) .step-num { background: var(--sage); }
+.step-card h3 { font-size: 24px; margin-bottom: 8px; }
+.step-card p { font-size: 15px; color: var(--muted); }
 
 /* ---------- Responsive ---------- */
 /* (responsive rules follow) */
@@ -355,16 +376,72 @@ section { scroll-margin-top: 24px; }
   }
   .quote-card { justify-self: stretch; max-width: none; }
   .why-intro { position: static; }
+
+  /* Centre the page copy on tablet and phone; forms stay left-aligned. */
+  .hero-copy { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .hero-lead { margin-inline: auto; }
+  .btn-row { justify-content: center; }
+  .trust { flex-direction: column; align-items: center; gap: 24px; padding: 40px 0 0; }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; width: 100%; max-width: 560px; text-align: center; }
+  .tags { justify-content: center; }
+  .section-head { flex-direction: column; align-items: center; text-align: center; margin-bottom: 32px; }
+  .why-intro { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .why-intro p { margin-inline: auto; }
+  .feature, .step-card, .service-card { text-align: center; }
+  .feature .feature-icon, .step-num { margin-inline: auto; }
+  .service-card p { margin-inline: auto; max-width: 40ch; }
+  .careers { grid-template-columns: 1fr; }
+  .careers .photo { order: -1; min-height: 300px; }
+  .careers-text { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .careers-text > p { margin-inline: auto; }
+  .checklist { text-align: left; }
+  .cta { text-align: center; }
+  .cta h2, .cta p { margin-inline: auto; }
+  .location-info { align-items: center; text-align: center; }
+  .location-info > p { margin-inline: auto; }
+  .location-list li { flex-direction: column; gap: 10px; }
+  .location-list address, .location-list div { align-items: center; }
+  .footer-grid { grid-template-columns: 1fr 1fr; text-align: center; }
+  .footer-brand { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+  .footer-brand p { margin-inline: auto; }
+  .footer-tags { justify-content: center; }
+  .footer-bottom { flex-direction: column; justify-content: center; text-align: center; }
+  .footer-bottom nav { justify-content: center; }
 }
 @media (max-width: 559px) {
-  .logo { width: 150px; height: 68px; }
-  .logo img { width: 163px; left: -7px; top: -37px; }
+  .section { padding-top: 72px; }
+  .logo { width: 128px; }
   .header-actions .btn-primary { padding: 12px 18px; }
-  .hero-grid { padding: 36px 16px 16px; }
-  .quote-card { padding: 22px; }
-  .careers .photo { min-height: 260px; }
-  .trust { padding: 36px 8px; }
-  .cta { border-radius: var(--radius-container); }
+  .hero { border-radius: 42px; }
+  .hero-grid { padding: 40px 16px 16px; gap: 36px; }
+  .hero h1 { font-size: clamp(36px, 10.4vw, 44px); margin: 20px 0; }
+  .hero-lead { font-size: 17px; margin-bottom: 28px; }
+  .quote-card { padding: 24px 20px; border-radius: 32px; }
+  .quote-head h2 { font-size: 26px; }
+
+  /* Full-width stacked buttons on phones. */
+  .btn-row { flex-direction: column; align-items: stretch; width: 100%; }
+  .btn-row .btn, .why-intro .btn, .location-info > .btn { width: 100%; }
+
+  .stat strong { font-size: 30px; }
+  .stat span { font-size: 13px; line-height: 1.35; display: block; margin-top: 6px; }
+  .section-head p, .why-intro p { font-size: 16px; }
+  .feature, .step-card { padding: 28px 22px; }
+  .service-card { border-radius: 42px; padding: 10px 10px 26px; }
+  .service-card .photo { border-radius: 32px; }
+  .service-card h3 { margin-top: 20px; }
+  .careers { border-radius: 42px; padding: 10px; }
+  .careers .photo { min-height: 240px; border-radius: 32px; }
+  .careers-text { padding: 32px 14px 22px; }
+  .checklist li { font-size: 16px; }
+  .cta { border-radius: 42px; padding: 44px 22px; }
+  .cta::before { width: 260px; height: 260px; top: -120px; right: -110px; }
+  .cta p { font-size: 17px; }
+  .location { border-radius: 42px; padding: 10px; }
+  .location-info { padding: 28px 12px 24px; }
+  .map { border-radius: 32px; }
+  .footer-grid { grid-template-columns: 1fr; border-radius: 42px; padding: 32px 20px; gap: 28px; }
+  .footer-bottom { padding: 20px 8px 28px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -541,3 +618,27 @@ section { scroll-margin-top: 24px; }
 @keyframes pin-pulse { 0% { transform: scale(.35); opacity: 1; } 100% { transform: scale(1.4); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .map-pin-pulse { animation: none; opacity: .5; } }
 @media (max-width: 559px) { .map { min-height: 320px; } }
+
+/* Keep the map credit clear of the rounded corner. */
+.map .leaflet-bottom.leaflet-right { right: 16px; bottom: 12px; }
+.map .leaflet-control-attribution { border-radius: 999px; }
+
+/* Tablet/phone overrides for sections whose base rules live further down
+   this file (location + map), so they must come after them. */
+@media (max-width: 899px) {
+  .location-info { align-items: center; text-align: center; }
+  .location-list { justify-items: center; }
+  .location-list li { flex-direction: column; align-items: center; gap: 10px; }
+  .location-list address, .location-list div { align-items: center; }
+  .map { min-height: 380px; }
+  .cta::before { width: 240px; height: 240px; top: -150px; right: -110px; }
+}
+@media (max-width: 559px) {
+  .map { min-height: 320px; }
+  .cta::before { width: 220px; height: 220px; top: -150px; right: -120px; }
+}
+@media (max-width: 559px) {
+  /* Submit on top, Back below, both full width. */
+  .step-actions { flex-direction: column-reverse; }
+  .step-actions .btn { width: 100%; }
+}

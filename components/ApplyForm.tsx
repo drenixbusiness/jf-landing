@@ -5,30 +5,30 @@ import { useRef, useState, type FormEvent, type ReactNode } from "react";
 import { Icon } from "./Icon";
 import { StateSelect } from "./StateSelect";
 import { EQUIPMENT, US_STATES, type Equipment } from "@/lib/site";
-import { validateStep1, validateStep2, type QuoteErrors, type QuoteInput } from "@/lib/quote";
+import { validateStep1, validateStep2, type ApplyErrors, type ApplyInput } from "@/lib/apply";
 
-const empty: QuoteInput = {
+const empty: ApplyInput = {
   firstName: "", lastName: "", state: "",
   equipment: "Dry Van", phone: "", email: "", consent: false,
 };
 
 type TextField = "firstName" | "lastName" | "phone" | "email";
 
-export function QuoteForm() {
+export function ApplyForm() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [data, setData] = useState<QuoteInput>(empty);
-  const [errors, setErrors] = useState<QuoteErrors>({});
+  const [data, setData] = useState<ApplyInput>(empty);
+  const [errors, setErrors] = useState<ApplyErrors>({});
   const [sending, setSending] = useState(false);
   const [serverError, setServerError] = useState("");
   const honeypot = useRef<HTMLInputElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  const set = <K extends keyof QuoteInput>(key: K, value: QuoteInput[K]) => {
+  const set = <K extends keyof ApplyInput>(key: K, value: ApplyInput[K]) => {
     setData((d) => ({ ...d, [key]: value }));
     if (errors[key]) setErrors((e) => ({ ...e, [key]: undefined }));
   };
 
-  const focusFirstError = (e: QuoteErrors) => {
+  const focusFirstError = (e: ApplyErrors) => {
     const key = Object.keys(e)[0];
     if (key) cardRef.current?.querySelector<HTMLElement>(`[name="${key}"]`)?.focus();
   };
@@ -50,7 +50,7 @@ export function QuoteForm() {
     setSending(true);
     setServerError("");
     try {
-      const res = await fetch("/api/quote", {
+      const res = await fetch("/api/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, hp_extra: honeypot.current?.value ?? "" }),
@@ -58,7 +58,7 @@ export function QuoteForm() {
       if (!res.ok) throw new Error();
       setStep(3);
     } catch {
-      setServerError(`We couldn't send your request. Please try again or call dispatch.`);
+      setServerError(`We couldn't send your application. Please try again or call recruiting.`);
     } finally {
       setSending(false);
     }
@@ -88,9 +88,9 @@ export function QuoteForm() {
   );
 
   return (
-    <div className="quote-card" id="quote" ref={cardRef}>
+    <div className="quote-card" id="apply" ref={cardRef}>
       <div className="quote-head">
-        <h2>Quick quote</h2>
+        <h2>Quick apply</h2>
         <div className="progress" aria-hidden="true">
           {[1, 2, 3].map((n) => <span key={n} className={n <= step ? "done" : ""} />)}
         </div>
@@ -113,7 +113,7 @@ export function QuoteForm() {
             />
           </Field>
           <div className="field">
-            <span className="label" id="q-eq-label">Equipment</span>
+            <span className="label" id="q-eq-label">Equipment experience</span>
             <div className="segmented" role="radiogroup" aria-labelledby="q-eq-label">
               {EQUIPMENT.map((eq: Equipment) => (
                 <button
@@ -136,7 +136,7 @@ export function QuoteForm() {
         <form onSubmit={onStep2} noValidate>
           <div className="summary">{data.firstName.trim()} {data.lastName.trim()} · {US_STATES.find(([c]) => c === data.state)?.[1]} · {data.equipment}</div>
           {text("phone", "Phone", "(555) 123-4567", { type: "tel", inputMode: "tel", autoComplete: "tel", autoFocus: true })}
-          {text("email", "Email", "jane@company.com", { type: "email", autoComplete: "email" })}
+          {text("email", "Email", "jane@example.com", { type: "email", autoComplete: "email" })}
 
           {/* Spam trap: hidden from people, bots tend to fill it. */}
           <input ref={honeypot} className="hp" name="hp_extra" tabIndex={-1} autoComplete="off" data-lpignore="true" data-1p-ignore aria-hidden="true" />
@@ -154,7 +154,7 @@ export function QuoteForm() {
               <span className="consent-box"><Icon name="check" /></span>
               <span className="consent-text" id="q-consent-text">
                 I agree to the <Link href="/terms" target="_blank">Terms and Conditions</Link> and{" "}
-                <Link href="/privacy" target="_blank">Privacy Policy</Link>, and to be contacted about this quote by
+                <Link href="/privacy" target="_blank">Privacy Policy</Link>, and to be contacted about my application by
                 phone, text or email.
               </span>
             </label>
@@ -172,7 +172,7 @@ export function QuoteForm() {
               title={data.consent ? undefined : "Please accept the Terms and Privacy Policy first"}
               aria-describedby={data.consent ? undefined : "q-consent-text"}
             >
-              {sending ? "Sending…" : "Request my rate"}
+              {sending ? "Sending…" : "Submit application"}
             </button>
           </div>
         </form>
@@ -182,8 +182,8 @@ export function QuoteForm() {
         <div className="success" aria-live="polite">
           <div className="success-icon"><Icon name="check" /></div>
           <h3>Thanks, {data.firstName.trim()}.</h3>
-          <p>Our dispatcher will call you within 30 minutes with your rate.</p>
-          <button className="btn btn-secondary" type="button" onClick={reset}>Start a new quote</button>
+          <p>Our recruiting team will call you soon to talk through the job, the pay and home time.</p>
+          <button className="btn btn-secondary" type="button" onClick={reset}>Start a new application</button>
         </div>
       )}
     </div>

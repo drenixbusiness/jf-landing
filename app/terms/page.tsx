@@ -14,50 +14,48 @@ export default function Terms() {
 
           <p>
             These Terms and Conditions (“Terms”) govern your use of this website, operated by {site.name} (“we”,
-            “us”, “our”). By using this site or submitting a quote request, you agree to these Terms. If you do not
+            “us”, “our”). By using this site or submitting an application, you agree to these Terms. If you do not
             agree, please do not use the site.
           </p>
 
-          <h2>1. Our services</h2>
+          <h2>1. About us</h2>
           <p>
-            We are a motor carrier providing full-truckload transportation (dry van, reefer and flatbed) operating
-            under {site.usdot} and {site.mc}. This website provides information about our services and lets you
-            request a freight quote.
+            We are a motor carrier operating under {site.usdot} and {site.mc}. This website provides information
+            about driving for us and lets you send a short application to our recruiting team.
           </p>
 
-          <h2>2. Quote requests</h2>
+          <h2>2. Applications</h2>
           <p>
-            A quote request submitted through this site is an inquiry only. It is not a binding offer, a tender of
-            freight, or a contract of carriage. Any rate we give you is an estimate based on the information you
-            provide and is subject to confirmation of lane, weight, dimensions, commodity, timing, equipment
-            availability and accessorial requirements.
+            An application submitted through this site is an expression of interest only. It is not an offer of
+            employment or of a contract, and submitting it does not guarantee an interview or a position.
+            Information about pay, home time, equipment and routes on this site is general and may change; the
+            details that apply to you will be confirmed in writing if we make you an offer.
           </p>
           <p>
-            A shipment is accepted only when we confirm it in writing (for example, a signed rate confirmation). The
-            rate confirmation, bill of lading and any carrier agreement between us will govern that shipment.
+            Any offer is conditional on meeting our hiring requirements and the qualification rules of the Federal
+            Motor Carrier Safety Administration (FMCSA), which may include a full driver application, a
+            motor-vehicle record review, verification of past employment, a DOT physical and pre-employment drug
+            and alcohol testing. We will ask for your consent before running any such checks.
           </p>
 
           <h2>3. Accuracy of information</h2>
           <p>
-            You agree to provide accurate and complete information, including correct contact details and a truthful
-            description of the freight. You must not submit a request on someone else’s behalf without their
-            permission.
+            You agree to provide accurate and complete information, including correct contact details. You must not
+            submit an application on someone else’s behalf without their permission.
           </p>
 
           <h2>4. Communications consent</h2>
           <p>
-            By submitting a quote request, you agree that we may contact you about your request by phone call, text
-            message or email using the details you provide. Message and data rates may apply. Consent is not a
-            condition of purchasing any service. You can opt out of text messages at any time by replying STOP, or
-            by contacting us using the details below.
+            By submitting an application, you agree that we may contact you about it by phone call, text message or
+            email using the details you provide. Message and data rates may apply. Consent is not a condition of
+            employment. You can opt out of text messages at any time by replying STOP, or by contacting us using the
+            details below.
           </p>
 
-          <h2>5. Liability for cargo</h2>
+          <h2>5. Equal opportunity</h2>
           <p>
-            Loss of or damage to cargo is governed by the terms of the applicable bill of lading, rate confirmation
-            and carrier agreement, and by applicable federal law, including 49 U.S.C. § 14706 (the Carmack
-            Amendment). Coverage amounts described on this site are general information and do not replace the
-            terms of those documents.
+            We consider all qualified applicants without regard to race, color, religion, sex, sexual orientation,
+            gender identity, national origin, age, disability, veteran status or any other status protected by law.
           </p>
 
           <h2>6. Website use</h2>
@@ -70,15 +68,15 @@ export default function Terms() {
           <h2>7. Disclaimer</h2>
           <p>
             The site is provided “as is”. We try to keep the information current and accurate, but we do not
-            guarantee that it is complete, error-free or always available. Transit times and on-time statistics are
-            typical figures, not guarantees.
+            guarantee that it is complete, error-free or always available. Descriptions of pay, home time and
+            equipment are general and not a guarantee of terms of employment.
           </p>
 
           <h2>8. Limitation of liability</h2>
           <p>
             To the fullest extent allowed by law, we are not liable for any indirect, incidental or consequential
-            damages arising from your use of this website. This does not limit any liability we have under a
-            shipment contract or that cannot be limited by law.
+            damages arising from your use of this website. This does not limit any liability that cannot be
+            limited by law.
           </p>
 
           <h2>9. Privacy</h2>

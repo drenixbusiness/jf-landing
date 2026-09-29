@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { Icon } from "./Icon";
-import { QuoteLink } from "./QuoteLink";
+import { ApplyLink } from "./ApplyLink";
 import { site } from "@/lib/site";
 
 const links = [
-  { href: "/#services", label: "Services" },
-  { href: "/#why", label: "Why us" },
-  { href: "/#careers", label: "Careers" },
+  { href: "/#why", label: "Why drive with us" },
+  { href: "/#equipment", label: "Equipment" },
+  { href: "/#requirements", label: "Requirements" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -26,7 +26,7 @@ export function Header() {
       <div className="header-bar">
         <a className="logo" href="/#top" aria-label={`${site.shortName} — home`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/images/jf-logo.svg" alt={site.name} width={206} height={207} />
+          <img src="/assets/images/jf-logo-crop.svg" alt={site.name} width={596} height={259} />
         </a>
         <nav className="nav-pill" aria-label="Main">
           {links.map((l) => (
@@ -38,7 +38,7 @@ export function Header() {
             <Icon name="phone" />
             {site.phone}
           </a>
-          <QuoteLink className="btn btn-primary">Get a quote</QuoteLink>
+          <ApplyLink className="btn btn-primary">Apply now</ApplyLink>
           <button
             className="menu-btn"
             type="button"
@@ -57,7 +57,7 @@ export function Header() {
         ))}
         <a href={site.phoneHref} onClick={() => setOpen(false)}>
           <Icon name="phone" />
-          Call {site.phone}
+          Call recruiting {site.phone}
         </a>
       </nav>
     </header>
